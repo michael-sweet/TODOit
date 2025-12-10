@@ -1,25 +1,36 @@
 {
   "expo": {
-    "name": "todo-app",
-    "slug": "todo-app",
+    "name": "TODOit",
+    "slug": "todoit",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
+    "jsEngine": "hermes",
+    "androidStatusBar": {
+      "translucent": true
+    },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.sweetcodesolutions.todoit"
     },
     "android": {
+      "permissions": [
+        "android.permission.RECEIVE_BOOT_COMPLETED",
+        "android.permission.USE_EXACT_ALARM",
+        "android.vending.BILLING"
+      ],
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      }
+        "backgroundColor": "#FFFFFF"
+      },
+      "package": "com.sweetcodesolutions.todoit"
     },
     "web": {
       "bundler": "metro",
-      "output": "static",
+      "output": "single",
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
@@ -30,12 +41,57 @@
           "image": "./assets/images/splash-icon.png",
           "imageWidth": 200,
           "resizeMode": "contain",
-          "backgroundColor": "#ffffff"
+          "backgroundColor": "#FFFFFF",
+          "dark": {
+            "image": "./assets/images/splash-icon-dark.png",
+            "backgroundColor": "#121212"
+          }
+        }
+      ],
+      "expo-secure-store",
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/images/notification-icon.png",
+          "color": "#4A90E2"
+        }
+      ],
+      [
+        "expo-font",
+        {
+          "fonts": [
+            "./assets/fonts/Poppins-Regular.ttf",
+            "./assets/fonts/Roboto-Bold.ttf",
+            "./assets/fonts/Roboto-Regular.ttf"
+          ]
+        }
+      ],
+      [
+        "@react-native-community/datetimepicker",
+        {
+          "android": {
+            "timePicker": {
+              "background": {"light": "#FFFFFF", "dark": "#121212"},
+              "headerBackground": {"light": "#4A90E2", "dark": "#4A90E2"},
+              "numbersBackgroundColor": {"light": "#E1E1E1", "dark": "#E1E1E1"},
+              "numbersSelectorColor": {"light": "#4A90E2", "dark": "#4A90E2"},
+              "numbersTextColor": {"light": "#3C3C3C", "dark": "#3C3C3C"}
+            }
+          }
         }
       ]
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "23300d62-2547-4e76-96b8-0c44344c7386"
+      }
+    },
+    "owner": "innocentzebra"
   }
 }
